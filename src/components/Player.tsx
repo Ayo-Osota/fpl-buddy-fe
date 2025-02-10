@@ -2,11 +2,11 @@ import { PlayerProps } from '../data'
 
 const Player = ({
   playerName,
-  playerScore,
-  isCaptain = false,
-  isVice = false,
-  playerTeam,
-  featured = true
+  playerScore
+  // isCaptain = false,
+  // isVice = false,
+  // playerTeam,
+  // featured = true
 }: PlayerProps) => {
   return (
     <div className="flex max-w-[94px] flex-col items-center">
