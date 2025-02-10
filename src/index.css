@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #9f0f84;
+}
+
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.my-element {
+  background: white;
+  @variant dark {
+    @variant hover {
+      background: black;
+    }
+  }
+}
+
+html {
+  background-color: #000;
+}
+
+body {
+  font-family: 'DM Sans', serif;
+  font-optical-sizing: auto;
+  font-size: 1rem;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.11) 0%, #101010 100%);
+  min-height: 100vh;
+}
+
+.pg-container {
+  --max-width: 1296px;
+  --padding: 0.5rem;
+
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+}
+
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .even-columns {
+    grid-auto-flow: column;
+  }
+}
+
+.pitch {
+  background-image: url('./assets/halfway-line.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center 67%;
+}
