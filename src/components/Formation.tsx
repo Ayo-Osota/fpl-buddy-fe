@@ -29,27 +29,18 @@ const Formation = () => {
         })}
 
         <div className="mt-16 flex items-center justify-center gap-3 rounded-3xl border border-white/10 pt-1 pb-3.5 md:gap-9.5">
-          {players.map((player) => {
-            const {
-              playerId,
-              playerName,
-              playerPosition,
-              playerScore,
-              playerTeam,
-              bench = 0
-            } = player
-            return (
-              bench > 0 && (
-                <Player
-                  key={playerId}
-                  playerName={playerName}
-                  playerPosition={playerPosition}
-                  playerScore={playerScore}
-                  playerTeam={playerTeam}
-                />
-              )
-            )
-          })}
+          {players
+            .filter((player) => player?.bench && player?.bench > 0)
+            .sort((a, b) => (a.bench ?? 0) - (b.bench ?? 0))
+            .map((player) => (
+              <Player
+                key={player.playerId}
+                playerName={player.playerName}
+                playerPosition={player.playerPosition}
+                playerScore={player.playerScore}
+                playerTeam={player.playerTeam}
+              />
+            ))}
         </div>
       </div>
     </div>
